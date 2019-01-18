@@ -11,13 +11,22 @@ def dealDocxFile(filename):
     :param filename:
     :return:
     """
+    print("*******************************************************************************************")
     if os.path.isfile(filename):
         print(filename)
         file = docx.Document(filename)
+        #处理docx文档中的表格，处理cfg文件
+        tables = file.tables
+        for table in tables:
+            for i in range(1, len(table.rows)):
+                result = table.cell(1, 0).text
+                if "PORT" in result:
+                    print(result)
+
         print("段落数: ", str(len(file.paragraphs)))
         # 输出段落编号及段落内容
         for i in range(len(file.paragraphs)):
-            print("第" + str(i) + "段的内容是：" + file.paragraphs[i].text)
+            # print("第" + str(i) + "段的内容是：" + file.paragraphs[i].text)
             """
             re.findall(r'\w{2} \w{2}_\d{5}_X_\d{8}.\w{2}', file.paragraphs[i].text)     #匹配fbapDB
             re.findall(r'\w{2} \w{2}_\d{5}_\w{3}_\d{8}_pybak.sh', file.paragraphs[i].text)      #匹配pybak.sh
@@ -34,9 +43,6 @@ def dealDocxFile(filename):
                    print('afa:[%s]' % file.paragraphs[i].text)
                else:
                    print('afe:[%s]' % file.paragraphs[i].text)
-            
-
-
 
 def DocxAndDocFile(filename):
     if os.path.isfile(filename):
@@ -91,5 +97,5 @@ for i in range(len(file.paragraphs)):
 """
 
 if __name__ == '__main__':
-    dpath = "E:\\SVN\\2019\\20190110\\特色业务平台\\fbap.20190110r.t10\\XQ-2018-796"
+    dpath = "F:\\TFS_l\\文档&DB&AFEjar包\\WEEK\\2019\\20190117\\XQ-2018-852"
     printDocxInfo(dpath)
