@@ -6,40 +6,6 @@ class CheckSql:
     def __init__(self, dpath):
         self.dpath = dpath
 
-    # def findSbinsh(self, templateDir, shname):
-    #     """
-    #     :param templateDir:
-    #     :param shname:
-    #     :describe:根据传入的shname确定需要修改的脚本名
-    #     :return: filename
-    #     """
-    #     filedic = {"tfile": "3.mkafadir.sh",
-    #                "fofile": "4.mkafedir.sh",
-    #                "pybakfile": "6.afa_workspace_pybak.sh",
-    #                "copyfile": "7.cppy_update.sh",
-    #                "fbapDB": "51.db2_insert_fbap_auto.sh",
-    #                "bsmsDB": "52.db2_insert_bsms.sh",
-    #                "cfg": "cfgadd.sh",
-    #                "cfgadd": "fbap_afa_afe_comm.conf.add"
-    #     }
-    #     pybak = "pybak"
-    #     print("根据shname, 确定需要被拼接的脚本名")
-    #     print("shname=[%s]" % shname)
-    #
-    #     if re.match("TS_\d{5}_X_\d{8}.sh", shname):
-    #         print("属于DB部署脚本")
-    #         filename = os.path.join(templateDir, filedic["fbapDB"])
-    #         with open(filename, "rw+") as fn:
-    #             pass
-    #
-    #         print(filename)
-    #         return filename
-    #     elif pybak in shname:
-    #         filename = os.path.join(templateDir, filedic["pybakfile"])
-    #         print("filename")
-    #         return filename
-
-
     def __SpliceAdd(self):
         """
         :function:自动添加fbap_afa_afe_comm.conf.add
